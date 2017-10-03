@@ -209,6 +209,7 @@ process dedup {
 
 	script:
 	"""
+	set -e
 	#Measures execution time
 	sysdate=\$(date)
 	starttime=\$(date +%s.%N)
@@ -290,6 +291,7 @@ process trim {
 
    	script:
 	"""	
+	set -e
 	#Measures execution time
 	sysdate=\$(date)
 	starttime=\$(date +%s.%N)
@@ -376,6 +378,7 @@ process qualityAssessmentTrimmed {
 
    	script:
 	"""
+	set -e
 	#Measures execution time
 	sysdate=\$(date)
 	starttime=\$(date +%s.%N)
@@ -450,6 +453,7 @@ process decontaminate {
 	
 	script:
 	"""
+	set -e
 	#Measures execution time
 	sysdate=\$(date)
 	starttime=\$(date +%s.%N)
@@ -463,7 +467,7 @@ process decontaminate {
 	fi
 	
 	#Logs some figures about decontaminated/contaminated reads
-	echo  \"BBmap's human decontamination stats (paired reads): \" >> .log.5
+	echo  \"BBmap's ost decontamination stats (paired reads): \" >> .log.5
 	sed -n '/Read 1 data:/,/N Rate:/p' tmp.log | head -17 >> .log.5
 	echo \" \" >> .log.5
 	sed -n '/Read 2 data:/,/N Rate:/p' tmp.log >> .log.5
